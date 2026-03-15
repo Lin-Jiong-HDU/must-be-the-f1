@@ -1,26 +1,42 @@
+/* app/globals.css */
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #FF2D55;
+  --secondary: #00D4FF;
+  --accent: #FFD700;
+  --bg-dark: #0A0A0F;
+  --bg-card: #151520;
+  --bg-elevated: #1A1A25;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0B0;
+  --text-muted: #606070;
+  --glow-primary: 0 0 20px rgba(255, 45, 85, 0.5);
+  --glow-secondary: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-card: var(--bg-card);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Noto Sans SC', sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+.neon-glow { box-shadow: var(--glow-primary); }
+.neon-glow-secondary { box-shadow: var(--glow-secondary); }
+
+.striped-bg {
+  background: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
 }
