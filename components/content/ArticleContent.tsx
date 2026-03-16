@@ -1,5 +1,6 @@
 // components/content/ArticleContent.tsx
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import type { Article } from '@/types/content';
 
 interface ArticleContentProps {
@@ -83,6 +84,7 @@ export function ArticleContent({ article }: ArticleContentProps) {
       <div className="max-w-2xl mx-auto">
         <div className="article-content drop-cap">
           <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             components={{
               p: ({ children }) => <p className="mb-6">{children}</p>,
               h2: ({ children }) => <h2>{children}</h2>,
@@ -92,6 +94,20 @@ export function ArticleContent({ article }: ArticleContentProps) {
                   <span className="absolute -left-4 top-0 text-4xl text-primary/30 font-serif">"</span>
                   {children}
                 </blockquote>
+              ),
+              table: ({ children }) => (
+                <div className="overflow-x-auto my-8">
+                  <table className="min-w-full">{children}</table>
+                </div>
+              ),
+              thead: ({ children }) => <thead className="border-b border-border-subtle">{children}</thead>,
+              tbody: ({ children }) => <tbody>{children}</tbody>,
+              tr: ({ children }) => <tr className="border-b border-border-subtle/50">{children}</tr>,
+              th: ({ children }) => (
+                <th className="px-4 py-3 text-left text-sm font-semibold text-text-primary">{children}</th>
+              ),
+              td: ({ children }) => (
+                <td className="px-4 py-3 text-sm text-text-secondary">{children}</td>
               ),
             }}
           >

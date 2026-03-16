@@ -149,6 +149,41 @@ body {
   padding: 0;
 }
 
+/* 表格 */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.article-content thead {
+  border-bottom: 2px solid var(--primary);
+}
+
+.article-content th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.article-content td {
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.article-content tbody tr:hover {
+  background: var(--bg-elevated);
+}
+
+.article-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* 导航栏 */
 nav a {
   transition: color 0.2s ease;
