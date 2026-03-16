@@ -215,3 +215,256 @@ nav a {
 .guide-content h3 {
   font-family: var(--font-serif), var(--font-serif-cn), Georgia, serif;
 }
+
+/* ========== 攻略模块装饰样式 ========== */
+
+/* 斜条纹装饰背景 */
+.stripe-decoration {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(255, 215, 0, 0.08) 4px,
+    rgba(255, 215, 0, 0.08) 8px
+  );
+}
+
+/* 角落斜条纹装饰 */
+.corner-stripe {
+  position: relative;
+  overflow: hidden;
+}
+
+.corner-stripe::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 215, 0, 0.15) 6px,
+    rgba(255, 215, 0, 0.15) 12px
+  );
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+/* 霓虹光效 */
+.neon-glow {
+  box-shadow:
+    0 0 5px rgba(255, 215, 0, 0.3),
+    0 0 10px rgba(255, 215, 0, 0.2),
+    0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.neon-glow-strong {
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+/* 攻略卡片样式 */
+.guide-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0.75rem;
+}
+
+.guide-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 215, 0, 0.4);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.guide-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 215, 0, 0.05) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.guide-card:hover::before {
+  opacity: 1;
+}
+
+/* 赛道轮廓背景 */
+.track-outline-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 沉浸式头图 */
+.immersive-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4rem;
+}
+
+.immersive-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--bg-dark) 0%,
+    rgba(9, 9, 11, 0.8) 30%,
+    rgba(9, 9, 11, 0.4) 60%,
+    transparent 100%
+  );
+}
+
+.immersive-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.01) 2px,
+    rgba(255, 255, 255, 0.01) 4px
+  );
+  pointer-events: none;
+}
+
+/* 装饰性章节标题 */
+.decorative-heading {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.decorative-heading::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--accent-gold),
+    rgba(255, 215, 0, 0.3) 50%,
+    transparent
+  );
+  min-width: 100px;
+}
+
+/* 板块进入动画 */
+.section-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 圆形导航按钮 */
+.nav-circle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+.nav-circle-btn:hover {
+  background: var(--bg-elevated);
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+.nav-circle-btn.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.nav-circle-btn.active span {
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.8));
+}
+
+/* 胶囊按钮样式 */
+.capsule-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.capsule-btn.inactive {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+.capsule-btn.inactive:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.capsule-btn.active {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 200, 0, 0.9));
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* 分隔线装饰 */
+.decorative-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.decorative-divider::before,
+.decorative-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+}
+
+.decorative-divider .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
