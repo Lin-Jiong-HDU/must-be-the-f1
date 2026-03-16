@@ -74,16 +74,8 @@ export function SeasonCalendar({ year = new Date().getFullYear() }: SeasonCalend
           </div>
         </div>
 
-        {/* 赛道时间轴 */}
-        <div className="relative pb-4">
-          {/* 进度线 */}
-          <div className="absolute top-7 left-0 right-0 h-px bg-white/[0.06]" />
-          <div
-            className="absolute top-7 left-0 h-px bg-white/20 transition-all duration-500"
-            style={{ width: `${progress}%` }}
-          />
-
-          {/* 赛道列表 */}
+        {/* 赛道列表 */}
+        <div className="pb-4">
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
             {races.map((race, index) => {
               const isPast = new Date(race.date) < new Date();
