@@ -2,17 +2,24 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #FF2D55;
+  /* 色彩系统 */
+  --primary: #E10600;
   --secondary: #00D4FF;
   --accent: #FFD700;
-  --bg-dark: #0A0A0F;
-  --bg-card: #151520;
-  --bg-elevated: #1A1A25;
-  --text-primary: #FFFFFF;
-  --text-secondary: #A0A0B0;
-  --text-muted: #606070;
-  --glow-primary: 0 0 20px rgba(255, 45, 85, 0.5);
-  --glow-secondary: 0 0 20px rgba(0, 212, 255, 0.5);
+
+  /* 背景色 - 纯净深色 */
+  --bg-dark: #09090B;
+  --bg-card: #18181B;
+  --bg-elevated: #27272A;
+
+  /* 文字色 */
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+
+  /* 杂志风格色彩 */
+  --text-reading: #D4D4D8;
+  --border-subtle: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {
@@ -25,18 +32,134 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --font-heading: 'Bebas Neue', sans-serif;
-  --font-body: 'Noto Sans SC', sans-serif;
+  --color-text-reading: var(--text-reading);
+  --color-border-subtle: var(--border-subtle);
+
+  --font-serif: var(--font-serif);
+  --font-serif-cn: var(--font-serif-cn);
+  --font-sans: var(--font-sans);
 }
 
 body {
   background: var(--bg-dark);
   color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-.neon-glow { box-shadow: var(--glow-primary); }
-.neon-glow-secondary { box-shadow: var(--glow-secondary); }
+/* 杂志风格文章排版 */
+.article-content {
+  font-family: var(--font-serif-cn), Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: var(--text-reading);
+}
 
-.striped-bg {
-  background: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+.article-content h2 {
+  font-family: var(--font-serif), var(--font-serif-cn), Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.article-content h3 {
+  font-family: var(--font-serif), var(--font-serif-cn), Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.article-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.article-content a {
+  color: var(--secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.article-content li::marker {
+  color: var(--text-muted);
+}
+
+/* 首字母下沉 */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 4rem;
+  line-height: 0.8;
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* 引用块 */
+.article-content blockquote {
+  border-left: 3px solid var(--primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* 代码块 */
+.article-content code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875em;
+  background: var(--bg-elevated);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  color: var(--secondary);
+}
+
+.article-content pre {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.article-content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* 导航栏 */
+nav a {
+  transition: color 0.2s ease;
+}
+
+/* 卡片悬浮效果 */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }

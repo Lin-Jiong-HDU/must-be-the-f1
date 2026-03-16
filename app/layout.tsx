@@ -1,11 +1,25 @@
 import type { Metadata } from 'next';
-import { Bebas_Neue, Noto_Sans_SC } from 'next/font/google';
+import { Playfair_Display, Inter, Noto_Serif_SC } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
-const bebasNeue = Bebas_Neue({ variable: '--font-heading', subsets: ['latin'], weight: '400' });
-const notoSansSC = Noto_Sans_SC({ variable: '--font-body', subsets: ['latin'] });
+const playfair = Playfair_Display({
+  variable: '--font-serif',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+const inter = Inter({
+  variable: '--font-sans',
+  subsets: ['latin'],
+});
+
+const notoSerifSC = Noto_Serif_SC({
+  variable: '--font-serif-cn',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: 'F1 资讯站',
@@ -15,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN">
-      <body className={`${bebasNeue.variable} ${notoSansSC.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${playfair.variable} ${inter.variable} ${notoSerifSC.variable} antialiased min-h-screen flex flex-col`}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
