@@ -68,7 +68,7 @@ export default function GuidesPage() {
       </header>
 
       {/* 内容区域 */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
         <GuideList guides={guides} />
       </div>
     </div>
