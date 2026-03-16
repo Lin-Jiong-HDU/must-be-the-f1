@@ -35,3 +35,32 @@ export function getAllSlugs(type: ContentType): string[] {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter(f => f.endsWith('.md')).map(f => f.replace('.md', ''));
 }
+
+export function getContentByRound(type: ContentType, round: number): Article | null {
+  const dir = path.join(CONTENT_DIR, type);
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+
+  for (const file of files) {
+    const { data, content } = matter(fs.readFileSync(path.join(dir, file), 'utf-8'));
+    if (data.round === round) {
+      return { ...(data as Frontmatter), content };
+    }
+  }
+
+  return null;
+}
+
+export function getAllRounds(type: ContentType): number[] {
+  const dir = path.join(CONTENT_DIR, type);
+  if (!fs.existsSync(dir)) return [];
+
+  return fs.readdirSync(dir)
+    .filter(f => f.endsWith('.md'))
+    .map(file => {
+      const { data } = matter(fs.readFileSync(path.join(dir, file), 'utf-8'));
+      return data.round as number;
+    })
+    .filter(Boolean);
+}
