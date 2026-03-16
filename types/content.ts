@@ -37,6 +37,7 @@ export interface RaceEvent {
   track: string;
   name: string;
   date: string;
+  sprint?: boolean;
   race?: string;
 }
 

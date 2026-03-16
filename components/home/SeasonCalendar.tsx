@@ -144,11 +144,16 @@ export function SeasonCalendar({ year = new Date().getFullYear() }: SeasonCalend
                   <div className="mt-3 text-center space-y-0.5">
                     <div
                       className={`
-                        text-xs font-medium
+                        text-xs font-medium flex items-center justify-center gap-1
                         ${isPast || isNext ? 'text-text-secondary' : 'text-text-muted'}
                       `}
                     >
                       {race.name.split(' ').pop()?.substring(0, 5)}
+                      {race.sprint && (
+                        <span className="text-[8px] px-1 py-0.5 rounded bg-purple-500/20 text-purple-400 font-medium">
+                          SPRINT
+                        </span>
+                      )}
                     </div>
                     <div className="text-[10px] text-text-muted/70">
                       {new Date(race.date).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' })}
@@ -173,6 +178,10 @@ export function SeasonCalendar({ year = new Date().getFullYear() }: SeasonCalend
           <div className="flex items-center gap-2.5">
             <div className="w-3 h-3 rounded-md bg-white/[0.02] border border-white/[0.05]" />
             <span className="text-xs text-text-muted">待进行</span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <span className="text-[8px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-400 font-medium">SPRINT</span>
+            <span className="text-xs text-text-muted">冲刺赛</span>
           </div>
         </div>
       </div>

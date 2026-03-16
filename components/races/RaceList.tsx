@@ -17,7 +17,14 @@ export function RaceList({ races }: RaceListProps) {
             href={`/races/${race.round}`}
             className="group block p-6 bg-bg-card rounded-lg border border-border-subtle hover:border-primary/30 transition-all duration-200 hover:-translate-y-1"
           >
-            <p className="text-sm text-primary mb-2">第 {race.round} 站</p>
+            <div className="flex items-center gap-2 mb-2">
+              <p className="text-sm text-primary">第 {race.round} 站</p>
+              {race.sprint && (
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-400 font-medium">
+                  SPRINT
+                </span>
+              )}
+            </div>
             <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
               {race.name}
             </h3>

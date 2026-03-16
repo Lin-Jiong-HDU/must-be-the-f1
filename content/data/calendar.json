@@ -1,6 +1,28 @@
 {
   "2026": [
-    { "round": 1, "track": "bahrain", "name": "巴林大奖赛", "date": "2026-03-15" },
-    { "round": 2, "track": "monaco", "name": "摩纳哥大奖赛", "date": "2026-05-24" }
+    { "round": 1, "track": "australia", "name": "澳大利亚大奖赛", "date": "2026-03-08" },
+    { "round": 2, "track": "china", "name": "中国大奖赛", "date": "2026-03-15", "sprint": true },
+    { "round": 3, "track": "japan", "name": "日本大奖赛", "date": "2026-03-29" },
+    { "round": 4, "track": "bahrain", "name": "巴林大奖赛", "date": "2026-04-12" },
+    { "round": 5, "track": "saudi-arabia", "name": "沙特阿拉伯大奖赛", "date": "2026-04-19" },
+    { "round": 6, "track": "miami", "name": "迈阿密大奖赛", "date": "2026-05-03", "sprint": true },
+    { "round": 7, "track": "canada", "name": "加拿大大奖赛", "date": "2026-05-24", "sprint": true },
+    { "round": 8, "track": "monaco", "name": "摩纳哥大奖赛", "date": "2026-06-07" },
+    { "round": 9, "track": "spain", "name": "西班牙大奖赛", "date": "2026-06-14" },
+    { "round": 10, "track": "austria", "name": "奥地利大奖赛", "date": "2026-06-28" },
+    { "round": 11, "track": "great-britain", "name": "英国大奖赛", "date": "2026-07-05", "sprint": true },
+    { "round": 12, "track": "belgium", "name": "比利时大奖赛", "date": "2026-07-19" },
+    { "round": 13, "track": "hungary", "name": "匈牙利大奖赛", "date": "2026-07-26" },
+    { "round": 14, "track": "netherlands", "name": "荷兰大奖赛", "date": "2026-08-23", "sprint": true },
+    { "round": 15, "track": "italy", "name": "意大利大奖赛", "date": "2026-09-06" },
+    { "round": 16, "track": "madrid", "name": "马德里大奖赛", "date": "2026-09-13" },
+    { "round": 17, "track": "azerbaijan", "name": "阿塞拜疆大奖赛", "date": "2026-09-27" },
+    { "round": 18, "track": "singapore", "name": "新加坡大奖赛", "date": "2026-10-11", "sprint": true },
+    { "round": 19, "track": "austin", "name": "美国大奖赛", "date": "2026-10-25" },
+    { "round": 20, "track": "mexico", "name": "墨西哥大奖赛", "date": "2026-11-01" },
+    { "round": 21, "track": "brazil", "name": "巴西大奖赛", "date": "2026-11-08" },
+    { "round": 22, "track": "las-vegas", "name": "拉斯维加斯大奖赛", "date": "2026-11-21" },
+    { "round": 23, "track": "qatar", "name": "卡塔尔大奖赛", "date": "2026-11-29" },
+    { "round": 24, "track": "abu-dhabi", "name": "阿布扎比大奖赛", "date": "2026-12-06" }
   ]
 }
