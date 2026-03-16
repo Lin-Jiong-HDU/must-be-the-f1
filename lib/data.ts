@@ -16,3 +16,15 @@ export function getNextRace(): RaceEvent | undefined {
   const today = new Date();
   return races.find(race => new Date(race.date) > today);
 }
+
+export function getGuidesByTrack<T extends { track?: string }>(guides: T[]): Map<string, T[]> {
+  const map = new Map<string, T[]>();
+  for (const guide of guides) {
+    const trackId = guide.track || 'other';
+    if (!map.has(trackId)) {
+      map.set(trackId, []);
+    }
+    map.get(trackId)!.push(guide);
+  }
+  return map;
+}

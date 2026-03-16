@@ -6,6 +6,7 @@
   --primary: #E10600;
   --secondary: #00D4FF;
   --accent: #FFD700;
+  --accent-gold: #FFD700;
 
   /* 背景色 - 纯净深色 */
   --bg-dark: #09090B;
@@ -26,6 +27,7 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-accent-gold: var(--accent-gold);
   --color-bg-dark: var(--bg-dark);
   --color-bg-card: var(--bg-card);
   --color-bg-elevated: var(--bg-elevated);
@@ -197,4 +199,19 @@ nav a {
 .card-hover:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 攻略详情页样式 */
+.guide-content {
+  font-family: var(--font-serif-cn), Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.guide-content h2 {
+  scroll-margin-top: 6rem;
+}
+
+.guide-content h3 {
+  font-family: var(--font-serif), var(--font-serif-cn), Georgia, serif;
 }
