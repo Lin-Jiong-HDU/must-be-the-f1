@@ -1,6 +1,7 @@
 // components/home/HeroSection.tsx
 import { Button } from '@/components/ui/Button';
 import { getTrack } from '@/lib/data';
+import { Track3D } from '@/components/3d/Track3D';
 import type { RaceEvent } from '@/types/content';
 
 interface HeroSectionProps {
@@ -26,9 +27,7 @@ export function HeroSection({ race }: HeroSectionProps) {
               <Button href={`/library/tracks/${race.track}`} variant="ghost">赛道百科</Button>
             </div>
           </div>
-          <div className="relative aspect-video bg-bg-elevated rounded-lg flex items-center justify-center">
-            <span className="text-text-muted">赛道示意图</span>
-          </div>
+          <Track3D trackId="monaco" className="aspect-video" />
         </div>
       </div>
     </section>
