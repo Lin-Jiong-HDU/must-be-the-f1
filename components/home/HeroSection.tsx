@@ -97,7 +97,7 @@ export function HeroSection({ race }: HeroSectionProps) {
                 <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                 <Track3D
-                  trackId="monaco"
+                  trackId={race.track}
                   className="aspect-square relative"
                   onClick={() => setIsModalOpen(true)}
                 />
@@ -122,7 +122,7 @@ export function HeroSection({ race }: HeroSectionProps) {
       </section>
 
       <TrackDetailModal
-        trackId="monaco"
+        trackId={race.track}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />

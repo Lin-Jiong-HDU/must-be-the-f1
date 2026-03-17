@@ -47,6 +47,7 @@ interface Track3DProps {
 
 const trackDataMap: Record<string, () => Promise<{ default: TrackData }>> = {
   monaco: () => import('@/content/data/tracks/monaco.json').then(m => ({ default: m as TrackData })),
+  japan: () => import('@/content/data/tracks/japan.json').then(m => ({ default: m as TrackData })),
 };
 
 export function Track3D({ trackId = 'monaco', className = '', onClick }: Track3DProps) {
