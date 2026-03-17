@@ -48,6 +48,26 @@ interface Track3DProps {
 const trackDataMap: Record<string, () => Promise<{ default: TrackData }>> = {
   monaco: () => import('@/content/data/tracks/monaco.json').then(m => ({ default: m as TrackData })),
   japan: () => import('@/content/data/tracks/japan.json').then(m => ({ default: m as TrackData })),
+  bahrain: () => import('@/content/data/tracks/bahrain.json').then(m => ({ default: m as TrackData })),
+  'saudi-arabia': () => import('@/content/data/tracks/saudi-arabia.json').then(m => ({ default: m as TrackData })),
+  miami: () => import('@/content/data/tracks/miami.json').then(m => ({ default: m as TrackData })),
+  canada: () => import('@/content/data/tracks/canada.json').then(m => ({ default: m as TrackData })),
+  spain: () => import('@/content/data/tracks/spain.json').then(m => ({ default: m as TrackData })),
+  austria: () => import('@/content/data/tracks/austria.json').then(m => ({ default: m as TrackData })),
+  'great-britain': () => import('@/content/data/tracks/great-britain.json').then(m => ({ default: m as TrackData })),
+  belgium: () => import('@/content/data/tracks/belgium.json').then(m => ({ default: m as TrackData })),
+  hungary: () => import('@/content/data/tracks/hungary.json').then(m => ({ default: m as TrackData })),
+  netherlands: () => import('@/content/data/tracks/netherlands.json').then(m => ({ default: m as TrackData })),
+  italy: () => import('@/content/data/tracks/italy.json').then(m => ({ default: m as TrackData })),
+  madrid: () => import('@/content/data/tracks/madrid.json').then(m => ({ default: m as TrackData })),
+  azerbaijan: () => import('@/content/data/tracks/azerbaijan.json').then(m => ({ default: m as TrackData })),
+  singapore: () => import('@/content/data/tracks/singapore.json').then(m => ({ default: m as TrackData })),
+  austin: () => import('@/content/data/tracks/austin.json').then(m => ({ default: m as TrackData })),
+  mexico: () => import('@/content/data/tracks/mexico.json').then(m => ({ default: m as TrackData })),
+  brazil: () => import('@/content/data/tracks/brazil.json').then(m => ({ default: m as TrackData })),
+  'las-vegas': () => import('@/content/data/tracks/las-vegas.json').then(m => ({ default: m as TrackData })),
+  qatar: () => import('@/content/data/tracks/qatar.json').then(m => ({ default: m as TrackData })),
+  'abu-dhabi': () => import('@/content/data/tracks/abu-dhabi.json').then(m => ({ default: m as TrackData })),
 };
 
 export function Track3D({ trackId = 'monaco', className = '', onClick }: Track3DProps) {
