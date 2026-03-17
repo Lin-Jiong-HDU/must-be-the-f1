@@ -1,7 +1,7 @@
 // components/home/HeroSection.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
 import { getTrack } from '@/lib/data';
 import { Track3D } from '@/components/3d/Track3D';
@@ -14,7 +14,17 @@ interface HeroSectionProps {
 
 export function HeroSection({ race }: HeroSectionProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formattedDate, setFormattedDate] = useState<string>('');
   const track = getTrack(race.track);
+
+  useEffect(() => {
+    setFormattedDate(new Date(race.date).toLocaleDateString('zh-CN', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }));
+  }, [race.date]);
 
   return (
     <>
@@ -67,12 +77,7 @@ export function HeroSection({ race }: HeroSectionProps) {
                 </div>
                 <div className="h-8 w-px bg-white/[0.06]" />
                 <span className="text-text-secondary">
-                  {new Date(race.date).toLocaleDateString('zh-CN', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
+                  {formattedDate || new Date(race.date).toISOString().split('T')[0]}
                 </span>
               </div>
 
