@@ -201,34 +201,62 @@ function simplifyPoints(points: { x: number; y: number; z: number }[], keepEvery
   return points.filter((_, i) => i % keepEvery === 0);
 }
 
+// 查找最长的path元素（通常是主赛道）
+function findMainPath(svgContent: string): string {
+  const pathRegex = /<path[^>]*\sd="[^"]*"[^>]*\/>/g;
+  let match;
+  let longestPath = '';
+  let longestLength = 0;
+
+  while ((match = pathRegex.exec(svgContent)) !== null) {
+    const pathElement = match[0];
+    const dMatch = pathElement.match(/\sd="([^"]+)"/);
+    if (dMatch && dMatch[1].length > longestLength) {
+      longestLength = dMatch[1].length;
+      longestPath = pathElement;
+    }
+  }
+
+  return longestPath;
+}
+
 // 主函数
 function main() {
   const svgPath = process.argv[2] || 'public/tracks/Monte_Carlo.svg';
   const outputPath = process.argv[3] || 'content/data/tracks/monaco.json';
+  const trackName = process.argv[4] || 'Monaco';
+  const trackId = process.argv[5] || 'monaco';
+  const pathId = process.argv[6]; // 可选：指定path ID
 
   console.log(`Reading SVG from: ${svgPath}`);
 
   const svgContent = fs.readFileSync(svgPath, 'utf-8');
 
-  // 查找 path3581 周围的内容 - d 属性在 id 之前
-  // 格式: <path style="..." d="..." id="path3581" .../>
-  const idIndex = svgContent.indexOf('id="path3581"');
-  if (idIndex === -1) {
-    console.error('Could not find path3581');
-    process.exit(1);
+  let pathElement = '';
+
+  if (pathId) {
+    // 如果指定了path ID，按ID查找
+    const idIndex = svgContent.indexOf(`id="${pathId}"`);
+    if (idIndex === -1) {
+      console.error(`Could not find path with id="${pathId}"`);
+      process.exit(1);
+    }
+    const pathStart = svgContent.lastIndexOf('<path', idIndex);
+    const pathEnd = svgContent.indexOf('/>', idIndex);
+    if (pathStart === -1 || pathEnd === -1) {
+      console.error('Could not locate path element boundaries');
+      process.exit(1);
+    }
+    pathElement = svgContent.substring(pathStart, pathEnd + 2);
+  } else {
+    // 自动查找最长的path（通常是主赛道）
+    pathElement = findMainPath(svgContent);
+    if (!pathElement) {
+      console.error('Could not find any path element');
+      process.exit(1);
+    }
   }
 
-  // 从 id 位置向前查找 <path 标签开始
-  const pathStart = svgContent.lastIndexOf('<path', idIndex);
-  // 从 id 位置向后查找 /> 结束
-  const pathEnd = svgContent.indexOf('/>', idIndex);
-
-  if (pathStart === -1 || pathEnd === -1) {
-    console.error('Could not locate path element boundaries');
-    process.exit(1);
-  }
-
-  const pathElement = svgContent.substring(pathStart, pathEnd + 2);
   console.log(`Found path element, length: ${pathElement.length} characters`);
 
   // 提取 d 属性
@@ -262,8 +290,8 @@ function main() {
 
   // 保存为JSON
   const output = {
-    name: 'Monaco',
-    id: 'monaco',
+    name: trackName,
+    id: trackId,
     points: simplified,
     pointCount: simplified.length
   };
