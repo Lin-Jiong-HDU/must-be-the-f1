@@ -68,6 +68,8 @@ const trackDataMap: Record<string, () => Promise<{ default: TrackData }>> = {
   'las-vegas': () => import('@/content/data/tracks/las-vegas.json').then(m => ({ default: m as TrackData })),
   qatar: () => import('@/content/data/tracks/qatar.json').then(m => ({ default: m as TrackData })),
   'abu-dhabi': () => import('@/content/data/tracks/abu-dhabi.json').then(m => ({ default: m as TrackData })),
+  china: () => import('@/content/data/tracks/china.json').then(m => ({ default: m as TrackData })),
+  australia: () => import('@/content/data/tracks/australia.json').then(m => ({ default: m as TrackData })),
 };
 
 export function Track3D({ trackId = 'monaco', className = '', onClick }: Track3DProps) {
