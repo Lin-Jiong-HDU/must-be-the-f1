@@ -13,7 +13,7 @@ export function Header() {
             </div>
             <span className="text-xl font-medium text-text-primary hidden sm:block tracking-tight"
                   style={{ fontFamily: 'var(--font-serif), var(--font-serif-cn), Georgia, serif' }}>
-              资讯站
+              Must Be The F1
             </span>
           </Link>
           <Navigation />

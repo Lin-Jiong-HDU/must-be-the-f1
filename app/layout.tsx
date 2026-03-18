@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { PageTransition } from '@/components/layout/PageTransition';
+import { NextRaceBar } from '@/components/layout/NextRaceBar';
 
 const playfair = Playfair_Display({
   variable: '--font-serif',
@@ -23,7 +24,7 @@ const notoSerifSC = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: 'F1 资讯站',
+  title: 'Must Be The F1',
   description: 'F1 赛车资讯、赛事深度解读与城市观赛攻略',
 };
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="zh-CN">
       <body className={`${playfair.variable} ${inter.variable} ${notoSerifSC.variable} antialiased min-h-screen flex flex-col`}>
         <Header />
+        <NextRaceBar />
         <PageTransition>{children}</PageTransition>
         <Footer />
       </body>
