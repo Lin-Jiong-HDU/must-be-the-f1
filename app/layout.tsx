@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="zh-CN">
       <body className={`${playfair.variable} ${inter.variable} ${notoSerifSC.variable} antialiased min-h-screen flex flex-col`}>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 page-fade-in">{children}</main>
         <Footer />
       </body>
     </html>
