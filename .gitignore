@@ -42,3 +42,6 @@ next-env.d.ts
 
 docs/
 .playwright-mcp/
+
+# 用户内容（markdown 文档）
+content/zh/
