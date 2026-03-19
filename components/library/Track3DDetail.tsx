@@ -10,7 +10,7 @@ import type { Track, RaceEvent } from '@/types/content';
 interface TrackData {
   name: string;
   id: string;
-  points: { x: number; y: number; z: number }[];
+  points: { x: number | null; y: number | null; z: number | null }[];
 }
 
 interface TrackLineProps {
@@ -24,7 +24,9 @@ function TrackLine({ trackData, color = '#E10600', autoRotate = true }: TrackLin
 
   const scale = 1.8;
   const points = useMemo(() => {
-    return trackData.points.map(p => new THREE.Vector3(p.x * scale, 0, p.y * scale));
+    return trackData.points
+      .filter(p => p.x !== null && p.y !== null)
+      .map(p => new THREE.Vector3(p.x! * scale, 0, p.y! * scale));
   }, [trackData.points]);
 
   useFrame((state, delta) => {

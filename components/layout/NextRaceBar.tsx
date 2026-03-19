@@ -6,7 +6,7 @@ import { getNextRace } from '@/lib/data';
 
 export function NextRaceBar() {
   const [countdown, setCountdown] = useState<string>('');
-  const [race, setRace] = useState<ReturnType<typeof getNextRace>>(null);
+  const [race, setRace] = useState<ReturnType<typeof getNextRace>>(undefined);
 
   useEffect(() => {
     const nextRace = getNextRace();
