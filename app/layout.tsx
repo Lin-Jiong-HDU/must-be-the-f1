@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { NextRaceBar } from '@/components/layout/NextRaceBar';
+import { Analytics } from '@vercel/analytics/next';
 
 const playfair = Playfair_Display({
   variable: '--font-serif',
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NextRaceBar />
         <PageTransition>{children}</PageTransition>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
